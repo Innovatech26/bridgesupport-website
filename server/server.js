@@ -11,7 +11,7 @@ console.log(process.env.EMAIL_PASS);
 app.use(cors());
 app.use(express.json());
 
-// ✅ Mail transporter
+
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
@@ -20,12 +20,12 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-// ✅ Route
+
 app.post("/contact", async (req, res) => {
   const { first_name, last_name, email, service, message } = req.body;
 
   try {
-    // 1️⃣ Send email to company
+    
     await transporter.sendMail({
       from: `"Website Contact" <${process.env.EMAIL_USER}>`,
       to: process.env.EMAIL_USER,
@@ -39,7 +39,7 @@ app.post("/contact", async (req, res) => {
       `,
     });
 
-    // 2️⃣ Auto-reply to client
+   
     await transporter.sendMail({
       from: `"BridgeSupport" <${process.env.EMAIL_USER}>`,
       to: email,
