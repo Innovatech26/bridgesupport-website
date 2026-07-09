@@ -58,7 +58,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   });
 });
 
-document.getElementById("contactForm").addEventListener("submit", function (e) {
+document.getElementById("contactForm").addEventListener("submit", async function (e) {
   e.preventDefault();
 
   const btn = this.querySelector("button");
@@ -72,15 +72,34 @@ document.getElementById("contactForm").addEventListener("submit", function (e) {
     service: this.service.value,
     message: this.message.value,
   };
-  
-  emailjs.send("service_lmt7oqc", "template_y3w1dzj", formData)
-    .then(() => emailjs.send("service_lmt7oqc", "template_r827k59", formData))
-    .then(() => {
-      btn.textContent = "✓ Message Sent!";
-    })
-    .catch((error) => {
-      console.error(error);   // 
-      btn.textContent = "Failed. Try again.";
-      btn.disabled = false;
+
+  const API_URL =
+    window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1"
+      ? "http://localhost:5000"
+      : "https://newmail.onrender.com";
+
+  try {
+    const res = await fetch(`${API_URL}/contact`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
     });
+
+    if (!res.ok) throw new Error("Request failed");
+
+    const data = await res.json();
+
+    if (data.success) {
+      btn.textContent = "✓ Message Sent!";
+    } else {
+      throw new Error("Server error");
+    }
+
+  } catch (error) {
+    console.error("FETCH ERROR:", error);
+    btn.textContent = "❌ Failed. Try again.";
+    btn.disabled = false;
+  }
 });
