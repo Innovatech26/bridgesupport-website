@@ -29,30 +29,30 @@ hamburger.addEventListener('click', openMobile);
 mobClose.addEventListener('click', closeMobile);
 mobBackdrop.addEventListener('click', closeMobile);
 
-// ── SMOOTH SCROLL ────────────────────────────────
-function scrollTo(href) {
+// ── SMOOTH SCROLL (renamed to avoid shadowing window.scrollTo) ──
+function smoothScrollTo(href) {
   const target = document.querySelector(href);
   if (!target) return;
-  const offset = navbar.offsetHeight + 8;
-  const top = target.getBoundingClientRect().top + window.scrollY - offset;
+  const navH = navbar.offsetHeight + 8;
+  const top  = target.getBoundingClientRect().top + window.scrollY - navH;
   window.scrollTo({ top, behavior: 'smooth' });
 }
 
-// Desktop + inline anchor links
+// All non-mobile anchor links (nav, hero buttons, footer, etc.)
 document.querySelectorAll('a[href^="#"]:not(.mob-link)').forEach(a => {
   a.addEventListener('click', function (e) {
     e.preventDefault();
-    scrollTo(this.getAttribute('href'));
+    smoothScrollTo(this.getAttribute('href'));
   });
 });
 
-// Mobile menu links — close first, then scroll after animation
+// Mobile menu links — close panel first, then scroll after animation
 document.querySelectorAll('.mob-link[href^="#"]').forEach(a => {
   a.addEventListener('click', function (e) {
     e.preventDefault();
     const href = this.getAttribute('href');
     closeMobile();
-    setTimeout(() => scrollTo(href), 360);
+    setTimeout(() => smoothScrollTo(href), 360);
   });
 });
 
@@ -60,9 +60,8 @@ document.querySelectorAll('.mob-link[href^="#"]').forEach(a => {
 const revealObs = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (!entry.isIntersecting) return;
-    const el = entry.target;
-    const parent = el.parentElement;
-    // stagger siblings in the same parent
+    const el      = entry.target;
+    const parent  = el.parentElement;
     const siblings = parent
       ? [...parent.querySelectorAll(':scope > .fade-up')]
       : [el];
@@ -87,7 +86,7 @@ if (contactForm) {
     if (!key || key === 'YOUR_KEY_HERE') {
       formMsg.className = 'form-msg err';
       formMsg.textContent =
-        'Email not configured yet. See the setup comment in index.html — takes 2 minutes at web3forms.com.';
+        'Email not configured yet. See the comment in index.html — 2 minutes at web3forms.com.';
       return;
     }
 
@@ -105,7 +104,7 @@ if (contactForm) {
 
       if (data.success) {
         formMsg.className = 'form-msg ok';
-        formMsg.textContent = '✓ Message received! We\'ll be in touch within 24 hours.';
+        formMsg.textContent = "✓ Message received! We'll be in touch within 24 hours.";
         this.reset();
         submitBtn.innerHTML = '<i class="fa-solid fa-check"></i> Sent!';
         submitBtn.style.background = '#1F4532';
