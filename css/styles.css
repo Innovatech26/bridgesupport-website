@@ -113,8 +113,8 @@ button { cursor: pointer; font-family: inherit; }
 .hamburger span { width: 22px; height: 2px; background: rgba(245,240,232,0.8); border-radius: 2px; display: block; transition: 0.3s; }
 
 /* ── MOBILE MENU ───────────────────────────────── */
-.mob-backdrop { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.55); z-index: 910; opacity: 0; transition: opacity 0.3s; }
-.mob-backdrop.open { display: block; opacity: 1; }
+.mob-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,0.55); z-index: 910; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+.mob-backdrop.open { opacity: 1; pointer-events: auto; }
 .mob-menu { position: fixed; top: 0; right: -100%; width: min(300px, 82vw); height: 100%; background: var(--navy); border-left: 1px solid rgba(201,168,76,0.18); z-index: 920; padding: 2rem 1.75rem; overflow-y: auto; transition: right 0.38s var(--ease); }
 .mob-menu.open { right: 0; }
 .mob-close { background: none; border: none; color: rgba(245,240,232,0.55); font-size: 1.4rem; margin-bottom: 2.5rem; display: block; padding: 0; transition: color 0.2s; }
