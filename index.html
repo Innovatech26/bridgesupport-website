@@ -1,267 +1,628 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BridgeSupport Limited — Nigeria's Tech &amp; Talent Company</title>
+    <meta
+      name="description"
+      content="BridgeSupport builds digital solutions, trains professionals, and connects skilled talent with opportunity across Nigeria."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <nav id="navbar">
+      <div class="nav-inner">
+        <a href="#home" class="nav-logo">
+          <div class="logo-mark">BS</div>
+          <span>Bridge<strong>Support</strong></span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#process">How We Work</a></li>
+          <li><a href="#team">Team</a></li>
+          <li><a href="#contact" class="nav-cta">Contact Us</a></li>
+        </ul>
+        <button class="hamburger" id="hamburger" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
 
-<head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>BridgeSupport Limited — Bridging Talent & Technology</title>
+    <!-- MOBILE MENU -->
+    <div class="mob-backdrop" id="mobBackdrop"></div>
+    <aside class="mob-menu" id="mobMenu">
+      <button class="mob-close" id="mobClose" aria-label="Close menu">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <nav class="mob-nav">
+        <a href="#about" class="mob-link">About</a>
+        <a href="#services" class="mob-link">Services</a>
+        <a href="#process" class="mob-link">How We Work</a>
+        <a href="#team" class="mob-link">Team</a>
+        <a href="#contact" class="mob-link mob-cta">Contact Us</a>
+      </nav>
+    </aside>
 
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"/>
-
-
-  <link rel="stylesheet" href="css/styles.css"/>
-</head>
-
-<body>
-
-
-  <div class="bg-canvas">
-    <div class="bg-orb orb-1"></div>
-    <div class="bg-orb orb-2"></div>
-    <div class="bg-orb orb-3"></div>
-  </div>
-
-
-  <nav id="navbar">
-    <a class="nav-logo" href="#">
-      <div class="nav-logo-icon">🔗</div>
-      <div class="nav-logo-text">Bridge<span>Support</span></div>
-    </a>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#process">How We Work</a></li>
-      <li><a href="#team">Team</a></li>
-      <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
-    </ul>
-    <button class="hamburger" id="hamburger" aria-label="Open menu">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
-
-
-  <div class="mobile-menu" id="mobileMenu">
-    <button class="mobile-close" id="mobileClose">✕</button>
-    <a href="#about"    onclick="closeMobile()">About</a>
-    <a href="#services" onclick="closeMobile()">Services</a>
-    <a href="#process"  onclick="closeMobile()">How We Work</a>
-    <a href="#team"     onclick="closeMobile()">Team</a>
-    <a href="#contact"  onclick="closeMobile()">Contact</a>
-  </div>
-
-
-  <section id="hero">
-    <div class="hero-grid"></div>
-    <div class="hero-inner">
-      <div>
-        <div class="hero-badge"><span class="badge-dot"></span>Registered in Nigeria · CAC 2025</div>
-        <h1 class="hero-title">Bridging <span class="grad-text">Talent</span><br/>&amp; Technology<br/>for Africa</h1>
-        <p class="hero-desc">BridgeSupport Limited is a Nigerian technology and human capital company — building digital solutions, developing skilled professionals, and connecting talent to opportunity.</p>
-        <div class="hero-actions">
-          <a href="#services" class="btn-primary">Explore Services →</a>
-          <a href="#contact"  class="btn-secondary">Work With Us</a>
+    <!-- HERO -->
+    <section id="home" class="hero">
+      <div class="hero-glow hero-glow-1"></div>
+      <div class="hero-glow hero-glow-2"></div>
+      <div class="hero-pattern"></div>
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="pill fade-up">
+            <span class="pill-dot"></span>
+            Registered in Nigeria &middot; CAC 2025
+          </div>
+          <h1 class="hero-title fade-up">
+            Nigeria's Premier<br />
+            <em>Tech &amp; Talent</em><br />
+            Company
+          </h1>
+          <p class="hero-sub fade-up">
+            We build digital solutions, train Africa's next generation of
+            professionals, and connect skilled talent with the organisations
+            that need them.
+          </p>
+          <div class="hero-btns fade-up">
+            <a href="#services" class="btn btn-gold">Explore Services</a>
+            <a href="#contact" class="btn btn-ghost">Work With Us</a>
+          </div>
+          <div class="hero-stats fade-up">
+            <div class="hstat">
+              <span class="hstat-n">6</span>
+              <span class="hstat-l">Core Services</span>
+            </div>
+            <div class="hstat-div"></div>
+            <div class="hstat">
+              <span class="hstat-n">5</span>
+              <span class="hstat-l">Expert Founders</span>
+            </div>
+            <div class="hstat-div"></div>
+            <div class="hstat">
+              <span class="hstat-n">3</span>
+              <span class="hstat-l">Cities Nationwide</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero-visual fade-up">
+          <div class="hero-img-wrap">
+            <img
+              src="./BS.png"
+              alt="Business professional"
+              loading="lazy"
+              onerror="this.style.display = 'none'"
+            />
+            <div class="hero-img-badge">
+              <i class="fa-solid fa-shield-halved"></i> CAC Registered
+            </div>
+          </div>
         </div>
       </div>
-      <div class="hero-visual">
-        <div class="hero-logo-box">
-          <svg class="logo-svg" viewBox="0 0 220 170" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <linearGradient id="lg1" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%"   stop-color="#3b82f6"/>
-                <stop offset="50%"  stop-color="#8b5cf6"/>
-                <stop offset="100%" stop-color="#c084fc"/>
-              </linearGradient>
-            </defs>
-            <line x1="110" y1="22"  x2="42"  y2="118" stroke="url(#lg1)" stroke-width="5.5" stroke-linecap="round"/>
-            <line x1="110" y1="22"  x2="178" y2="118" stroke="url(#lg1)" stroke-width="5.5" stroke-linecap="round"/>
-            <line x1="56"  y1="118" x2="164" y2="118" stroke="url(#lg1)" stroke-width="5.5" stroke-linecap="round"/>
-            <line x1="110" y1="22"  x2="88"  y2="92"  stroke="url(#lg1)" stroke-width="4"   stroke-linecap="round" opacity="0.65"/>
-            <line x1="110" y1="22"  x2="132" y2="92"  stroke="url(#lg1)" stroke-width="4"   stroke-linecap="round" opacity="0.65"/>
-            <circle cx="110" cy="22"  r="9" fill="#3b82f6" stroke="#07051a" stroke-width="3"/>
-            <circle cx="42"  cy="118" r="9" fill="#3b82f6" stroke="#07051a" stroke-width="3"/>
-            <circle cx="178" cy="118" r="9" fill="#c084fc" stroke="#07051a" stroke-width="3"/>
-            <text x="110" y="155" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="17" fill="white" letter-spacing="-0.3">Bridge Support</text>
-          </svg>
-        </div>
-        <div class="mini-cards">
-          <div class="mini-card"><span class="mini-card-icon">💻</span><div class="mini-card-label">Core Focus</div><div class="mini-card-value">Tech & Digital</div></div>
-          <div class="mini-card"><span class="mini-card-icon">🎓</span><div class="mini-card-label">Speciality</div><div class="mini-card-value">Train & Place</div></div>
-          <div class="mini-card"><span class="mini-card-icon">🏛️</span><div class="mini-card-label">Incorporated</div><div class="mini-card-value">Oct 2025</div></div>
-          <div class="mini-card"><span class="mini-card-icon">📍</span><div class="mini-card-label">Jurisdiction</div><div class="mini-card-value">Nigeria</div></div>
-        </div>
-      </div>
-    </div>
-  </section>
+      <a href="#about" class="scroll-hint" aria-label="Scroll down">
+        <i class="fa-solid fa-chevron-down"></i>
+      </a>
+    </section>
 
-
-  <section id="about">
-    <div class="about-grid">
-      <div class="reveal">
-        <div class="section-label">Who We Are</div>
-        <h2 class="section-title">Built to bridge gaps in Africa's digital economy</h2>
-        <p class="about-text">Incorporated under the Companies and Allied Matters Act, 2020, BridgeSupport Limited exists to close the distance between great technology and the people who need it — and between skilled talent and the organisations that need them.</p>
-        <p class="about-text" style="margin-top:0.8rem">We are a private limited company headquartered in Nigeria, with a clear mandate: deliver technology services, build human capacity, support recruitment, and supply the tools that power modern businesses.</p>
-        <div class="about-pillars">
-          <div class="pillar"><div class="pillar-icon">🌐</div><div class="pillar-title">Technology Services</div><div class="pillar-desc">Web development, social media & digital tools.</div></div>
-          <div class="pillar"><div class="pillar-icon">🧑‍🏫</div><div class="pillar-title">Training & Mentorship</div><div class="pillar-desc">Skills programs aligned to real industry needs.</div></div>
-          <div class="pillar"><div class="pillar-icon">🤝</div><div class="pillar-title">Talent Placement</div><div class="pillar-desc">Recruiting and placing skilled individuals.</div></div>
-          <div class="pillar"><div class="pillar-icon">📦</div><div class="pillar-title">Tech Procurement</div><div class="pillar-desc">Supply & distribution of technology products.</div></div>
+    <!-- THREE PILLARS -->
+    <div class="pillars-bar">
+      <div class="container pillars-inner">
+        <div class="pillar fade-up">
+          <div class="pillar-icon"><i class="fa-solid fa-code"></i></div>
+          <div>
+            <h3>We Build</h3>
+            <p>Websites, apps &amp; digital solutions for your business</p>
+          </div>
         </div>
-      </div>
-      <div class="reveal">
-        <div class="company-info-card">
-          <div class="info-row"><span class="info-key">Company Name</span><span class="info-val">BridgeSupport Limited</span></div>
-          <div class="info-row"><span class="info-key">Type</span><span class="info-val">Private Company Limited by Shares</span></div>
-          <div class="info-row"><span class="info-key">Governing Law</span><span class="info-val">CAMA 2020 — Federal Republic of Nigeria</span></div>
-          
-         
-          <div class="info-row"><span class="info-key">Date Incorporated</span><span class="info-val">21 October 2025</span></div>
-          
-          <div class="verified-badge">✓ CAC Certified Extract — Verified</div>
+        <div class="pillar-sep"></div>
+        <div class="pillar fade-up">
+          <div class="pillar-icon">
+            <i class="fa-solid fa-graduation-cap"></i>
+          </div>
+          <div>
+            <h3>We Train</h3>
+            <p>Mentorship &amp; skills programs for Nigeria's tech leaders</p>
+          </div>
+        </div>
+        <div class="pillar-sep"></div>
+        <div class="pillar fade-up">
+          <div class="pillar-icon"><i class="fa-solid fa-handshake"></i></div>
+          <div>
+            <h3>We Connect</h3>
+            <p>Matching skilled professionals with the right companies</p>
+          </div>
         </div>
       </div>
     </div>
-  </section>
 
- 
-  <section id="services">
-    <div class="services-header reveal">
-      <div><div class="section-label">What We Offer</div><h2 class="section-title">Our Core<br/>Services</h2></div>
-      <p class="services-desc">From building your digital presence to training your next hire — BridgeSupport is your end-to-end technology and talent partner.</p>
-    </div>
-    <div class="services-grid">
-      <div class="service-card reveal"><div class="service-num">01</div><div class="service-icon">🌐</div><div class="service-title">Web Development & Digital Solutions</div><p class="service-desc">We design and build websites, web apps, and digital platforms tailored to your business — from landing pages to full-scale systems.</p><a class="service-link" href="#contact">Get started →</a></div>
-      <div class="service-card featured reveal"><div class="service-num">02</div><div class="service-icon">📱</div><div class="service-title">Social Media Management</div><p class="service-desc">Strategic content, community management, and analytics to grow your brand presence and engage your audience across all platforms.</p><a class="service-link" href="#contact">Get started →</a></div>
-      <div class="service-card reveal"><div class="service-num">03</div><div class="service-icon">🎓</div><div class="service-title">Training & Mentorship Programs</div><p class="service-desc">Structured development programs designed to equip individuals with in-demand skills aligned to real organisational needs.</p><a class="service-link" href="#contact">Get started →</a></div>
-      <div class="service-card reveal"><div class="service-num">04</div><div class="service-icon">🤝</div><div class="service-title">Recruitment & Talent Placement</div><p class="service-desc">We source, vet, and place skilled candidates to help organisations build high-performing teams quickly and confidently.</p><a class="service-link" href="#contact">Get started →</a></div>
-      <div class="service-card reveal"><div class="service-num">05</div><div class="service-icon">📦</div><div class="service-title">Tech Procurement & Supply</div><p class="service-desc">Procurement and distribution of technology equipment, software, and digital tools for individuals, businesses, and institutions.</p><a class="service-link" href="#contact">Get started →</a></div>
-      <div class="service-card reveal"><div class="service-num">06</div><div class="service-icon">⚙️</div><div class="service-title">Software & Tools Deployment</div><p class="service-desc">Purchase and deployment of relevant software to power your team's productivity, collaboration, and digital workflows.</p><a class="service-link" href="#contact">Get started →</a></div>
-    </div>
-  </section>
-
- 
-  <section id="process">
-    <div class="process-header reveal">
-      <div class="section-label">Our Process</div>
-      <h2 class="section-title">How We Work</h2>
-      <p style="margin-top:1rem;color:var(--white-50);max-width:460px;margin-left:auto;margin-right:auto;font-size:0.97rem;line-height:1.75">A clear, proven path from the first conversation to lasting results.</p>
-    </div>
-    <div class="steps-grid reveal">
-      <div class="step"><div class="step-num">01</div><span class="step-icon">🔍</span><div class="step-title">Discover</div><p class="step-desc">We listen to your goals, challenges, and context to understand exactly what you need and where the gaps are.</p></div>
-      <div class="step"><div class="step-num">02</div><span class="step-icon">🗺️</span><div class="step-title">Plan</div><p class="step-desc">We map a tailored solution — whether digital, training, recruitment, or procurement — with clear milestones.</p></div>
-      <div class="step"><div class="step-num">03</div><span class="step-icon">🚀</span><div class="step-title">Execute</div><p class="step-desc">Our team delivers with precision, transparency, and an unwavering commitment to quality outcomes.</p></div>
-      <div class="step"><div class="step-num">04</div><span class="step-icon">📈</span><div class="step-title">Grow</div><p class="step-desc">We track results and stay by your side as your needs evolve, ambitions expand, and impact scales.</p></div>
-    </div>
-  </section>
-
-
-  <section id="team">
-    <div class="team-header reveal">
-      <div class="section-label">Founding Members</div>
-      <h2 class="section-title">The People Behind<br/><span class="grad-text">BridgeSupport</span></h2>
-    </div>
-    <div class="shareholders-grid">
-      <div class="shareholder-card reveal"><div class="shareholder-avatar av1">TB</div><div class="sh-name">Tade Shola Barnabas</div><div class="sh-shares"></div><div class="sh-loc">Lagos</div></div>
-      <div class="shareholder-card reveal"><div class="shareholder-avatar av2">IE</div><div class="sh-name">Igwe Emmanuel Onyedikachukwu</div><div class="sh-shares"></div><div class="sh-loc">Abuja</div></div>
-      <div class="shareholder-card reveal"><div class="shareholder-avatar av3">IE</div><div class="sh-name">Igwe Ebenezer Chinemerem</div><div class="sh-shares"></div><div class="sh-loc">Abuja</div></div>
-      <div class="shareholder-card reveal"><div class="shareholder-avatar av4">OM</div><div class="sh-name">Onyemelonu Micheal</div><div class="sh-shares"></div><div class="sh-loc">Port Harourt</div></div>
-      <div class="shareholder-card reveal"><div class="shareholder-avatar av5">GO</div><div class="sh-name">Gabriel Heaven Ozioma</div><div class="sh-shares"></div><div class="sh-loc">Abuja</div></div>
-    </div>
-    
-  </section>
-
-  
-  <section id="contact">
-    <div class="contact-grid">
-      <div class="reveal">
-        <div class="section-label">Get In Touch</div>
-        <h2 class="section-title">Let's Build<br/><span class="grad-text">Something Together</span></h2>
-        <p class="contact-tagline">Whether you need a digital solution, want to upskill your team, or are looking for the right talent — BridgeSupport is ready to partner with you.</p>
-        <div class="contact-items">
-          <div class="c-item"><div class="c-icon">📍</div><div><div class="c-label">Registered Office</div><div class="c-val">Federal Republic of Nigeria</div></div></div>
-          <div class="c-item"><div class="c-icon">🏛️</div><div><div class="c-label">Regulator</div><div class="c-val">Corporate Affairs Commission (CAC)</div></div></div>
-          <div class="c-item"><div class="c-icon">📋</div><div><div class="c-label">Governing Law</div><div class="c-val">CAMA 2020 — Companies Limited by Shares</div></div></div>
-          <div class="c-item"><div class="c-icon">📅</div><div><div class="c-label">Incorporated</div><div class="c-val">October 21, 2025</div></div></div>
+    <!-- ABOUT -->
+    <section id="about" class="about">
+      <div class="container about-grid">
+        <div class="about-img-col fade-up">
+          <div class="about-img-wrap">
+            <img
+              src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=700&q=80&auto=format&fit=crop"
+              alt="Professional team"
+              loading="lazy"
+              onerror="this.style.display = 'none'"
+            />
+            <div class="about-gold-frame"></div>
+            <div class="about-float-card">
+              <i class="fa-solid fa-location-dot"></i>
+              <div>
+                <strong>Headquarters</strong>
+                <span>Abuja, Nigeria</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="about-text-col fade-up">
+          <div class="section-label">About BridgeSupport</div>
+          <h2 class="section-title">
+            Closing the Distance Between Talent &amp; Technology
+          </h2>
+          <p class="body-text mt-1">
+            BridgeSupport Limited is a registered Nigerian company dedicated to
+            building Africa's digital future. Founded by five industry
+            professionals across Lagos, Abuja, and Port Harcourt, we understand
+            the unique challenges and opportunities in Nigeria's tech landscape.
+          </p>
+          <p class="body-text mt-1">
+            Our mission: close the distance between great technology and the
+            people who need it — and between skilled talent and the
+            organisations that need them.
+          </p>
+          <div class="about-check-grid mt-2">
+            <div class="about-check">
+              <i class="fa-solid fa-circle-check"></i> Technology Services
+            </div>
+            <div class="about-check">
+              <i class="fa-solid fa-circle-check"></i> Training &amp; Mentorship
+            </div>
+            <div class="about-check">
+              <i class="fa-solid fa-circle-check"></i> Talent Placement
+            </div>
+            <div class="about-check">
+              <i class="fa-solid fa-circle-check"></i> Tech Procurement
+            </div>
+          </div>
+          <div class="about-legal mt-2">
+            <div class="legal-item">
+              <span class="legal-k">Incorporated</span>
+              <span class="legal-v">October 21, 2025</span>
+            </div>
+            <div class="legal-item">
+              <span class="legal-k">Governing Law</span>
+              <span class="legal-v">CAMA 2020 &middot; Nigeria</span>
+            </div>
+            <div class="legal-item">
+              <span class="legal-k">Type</span>
+              <span class="legal-v">Private Ltd by Shares</span>
+            </div>
+          </div>
         </div>
       </div>
+    </section>
 
-      <div class="contact-form reveal">
-  <div class="form-title">Send Us a Message</div>
-  <div class="form-sub">We'll get back to you within 24 hours.</div>
-
-  <form id="contactForm">   
-
-    <div class="form-row">
-      <div class="form-group">
-        <label>First Name</label>
-        <input type="text" name="first_name" placeholder="Emeka" required>
+    <!-- SERVICES -->
+    <section id="services" class="services">
+      <div class="container">
+        <div class="section-header fade-up">
+          <div class="section-label light">What We Do</div>
+          <h2 class="section-title light">Our Core Services</h2>
+          <p class="section-sub light">
+            Everything your business needs to thrive in Nigeria's digital
+            economy
+          </p>
+        </div>
+        <div class="services-grid">
+          <article class="svc-card fade-up">
+            <div class="svc-icon"><i class="fa-solid fa-globe"></i></div>
+            <h3>Web Development</h3>
+            <p>
+              Custom websites and digital solutions that represent your brand
+              and drive measurable results.
+            </p>
+            <div class="svc-tags">
+              <span>Websites</span><span>E-commerce</span><span>Web Apps</span>
+            </div>
+            <a href="#contact" class="svc-link"
+              >Get started <i class="fa-solid fa-arrow-right"></i
+            ></a>
+          </article>
+          <article class="svc-card featured fade-up">
+            <div class="svc-badge">Most Popular</div>
+            <div class="svc-icon"><i class="fa-solid fa-share-nodes"></i></div>
+            <h3>Social Media Management</h3>
+            <p>
+              Strategic content creation and community management that grows
+              your audience and engagement.
+            </p>
+            <div class="svc-tags">
+              <span>Strategy</span><span>Content</span><span>Analytics</span>
+            </div>
+            <a href="#contact" class="svc-link"
+              >Get started <i class="fa-solid fa-arrow-right"></i
+            ></a>
+          </article>
+          <article class="svc-card fade-up">
+            <div class="svc-icon">
+              <i class="fa-solid fa-chalkboard-user"></i>
+            </div>
+            <h3>Training &amp; Mentorship</h3>
+            <p>
+              Industry-aligned programs that equip professionals with in-demand
+              skills and real-world knowledge.
+            </p>
+            <div class="svc-tags">
+              <span>Bootcamps</span><span>Mentorship</span
+              ><span>Certifications</span>
+            </div>
+            <a href="#contact" class="svc-link"
+              >Get started <i class="fa-solid fa-arrow-right"></i
+            ></a>
+          </article>
+          <article class="svc-card fade-up">
+            <div class="svc-icon"><i class="fa-solid fa-users"></i></div>
+            <h3>Talent Placement</h3>
+            <p>
+              We source, vet, and place skilled tech professionals with
+              organisations that need top performers.
+            </p>
+            <div class="svc-tags">
+              <span>Recruitment</span><span>Vetting</span><span>Placement</span>
+            </div>
+            <a href="#contact" class="svc-link"
+              >Get started <i class="fa-solid fa-arrow-right"></i
+            ></a>
+          </article>
+          <article class="svc-card fade-up">
+            <div class="svc-icon"><i class="fa-solid fa-microchip"></i></div>
+            <h3>Tech Procurement</h3>
+            <p>
+              Supply and distribution of quality technology products and devices
+              at competitive prices.
+            </p>
+            <div class="svc-tags">
+              <span>Hardware</span><span>Devices</span><span>Supply Chain</span>
+            </div>
+            <a href="#contact" class="svc-link"
+              >Get started <i class="fa-solid fa-arrow-right"></i
+            ></a>
+          </article>
+          <article class="svc-card fade-up">
+            <div class="svc-icon"><i class="fa-solid fa-cloud"></i></div>
+            <h3>Software Deployment</h3>
+            <p>
+              End-to-end implementation and configuration of business software,
+              SaaS tools, and workflows.
+            </p>
+            <div class="svc-tags">
+              <span>SaaS</span><span>Integration</span><span>Support</span>
+            </div>
+            <a href="#contact" class="svc-link"
+              >Get started <i class="fa-solid fa-arrow-right"></i
+            ></a>
+          </article>
+        </div>
       </div>
+    </section>
 
-      <div class="form-group">
-        <label>Last Name</label>
-        <input type="text" name="last_name" placeholder="Okafor" required>
+    <!-- PROCESS -->
+    <section id="process" class="process">
+      <div class="container">
+        <div class="section-header fade-up">
+          <div class="section-label">How We Work</div>
+          <h2 class="section-title">Our Process</h2>
+          <p class="section-sub">
+            From first conversation to lasting results — a clear, proven path
+          </p>
+        </div>
+        <div class="process-steps">
+          <div class="proc-step fade-up">
+            <div class="proc-num">01</div>
+            <div class="proc-icon">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <h3>Discover</h3>
+            <p>
+              We listen deeply to your goals and challenges. Every great
+              solution begins with understanding.
+            </p>
+          </div>
+          <div class="proc-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+          <div class="proc-step fade-up">
+            <div class="proc-num">02</div>
+            <div class="proc-icon">
+              <i class="fa-solid fa-compass-drafting"></i>
+            </div>
+            <h3>Plan</h3>
+            <p>
+              We craft a clear roadmap tailored to your needs, timeline, and
+              budget — no surprises.
+            </p>
+          </div>
+          <div class="proc-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+          <div class="proc-step fade-up">
+            <div class="proc-num">03</div>
+            <div class="proc-icon"><i class="fa-solid fa-rocket"></i></div>
+            <h3>Execute</h3>
+            <p>
+              Our team delivers with precision, keeping you informed and
+              involved at every step.
+            </p>
+          </div>
+          <div class="proc-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+          <div class="proc-step fade-up">
+            <div class="proc-num">04</div>
+            <div class="proc-icon"><i class="fa-solid fa-chart-line"></i></div>
+            <h3>Grow</h3>
+            <p>
+              We don't disappear after delivery — we stay to ensure lasting
+              success and improvement.
+            </p>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
 
-    <div class="form-group">
-      <label>Email Address</label>
-      <input type="email" name="email" placeholder="hello@yourcompany.com" required>
-    </div>
+    <!-- TEAM -->
+    <section id="team" class="team">
+      <div class="container">
+        <div class="section-header fade-up">
+          <div class="section-label">The Founders</div>
+          <h2 class="section-title">Meet the Team</h2>
+          <p class="section-sub">
+            Five experienced professionals united by a shared vision for
+            Africa's digital future
+          </p>
+        </div>
+        <div class="team-grid">
+          <div class="team-card fade-up">
+            <div class="team-avatar">TB</div>
+            <div class="team-city">
+              <i class="fa-solid fa-location-dot"></i> Lagos
+            </div>
+            <h3>Tade Shola Barnabas</h3>
+            <span>Co-Founder &amp; Shareholder</span>
+          </div>
+          <div class="team-card fade-up">
+            <div class="team-avatar">EO</div>
+            <div class="team-city">
+              <i class="fa-solid fa-location-dot"></i> Abuja
+            </div>
+            <h3>Igwe Emmanuel Onyedikachukwu</h3>
+            <span>Co-Founder &amp; Shareholder</span>
+          </div>
+          <div class="team-card fade-up">
+            <div class="team-avatar">EB</div>
+            <div class="team-city">
+              <i class="fa-solid fa-location-dot"></i> Abuja
+            </div>
+            <h3>Igwe Ebenezer Chinemerem</h3>
+            <span>Co-Founder &amp; Shareholder</span>
+          </div>
+          <div class="team-card fade-up">
+            <div class="team-avatar">MO</div>
+            <div class="team-city">
+              <i class="fa-solid fa-location-dot"></i> Port Harcourt
+            </div>
+            <h3>Onyemelonu Micheal</h3>
+            <span>Co-Founder &amp; Shareholder</span>
+          </div>
+          <div class="team-card fade-up">
+            <div class="team-avatar">GO</div>
+            <div class="team-city">
+              <i class="fa-solid fa-location-dot"></i> Abuja
+            </div>
+            <h3>Gabriel Heaven Ozioma</h3>
+            <span>Co-Founder &amp; Shareholder</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <div class="form-group">
-      <label>Service Interest</label>
-      <select name="service">
-        <option value="" disabled selected>Select a service…</option>
-        <option>Web Development</option>
-        <option>Social Media Management</option>
-        <option>Training & Mentorship</option>
-        <option>Recruitment & Talent Placement</option>
-        <option>Tech Procurement & Supply</option>
-        <option>Other</option>
-      </select>
-    </div>
+    <!-- CONTACT -->
+    <section id="contact" class="contact">
+      <div class="container contact-grid">
+        <div class="contact-info fade-up">
+          <div class="section-label light">Let's Talk</div>
+          <h2 class="section-title light">Get In Touch</h2>
+          <p class="body-text light mt-1">
+            Whether you need a new website, want to train your team, or explore
+            how BridgeSupport can transform your business — we'd love to hear
+            from you.
+          </p>
+          <div class="contact-details">
+            <div class="cd-item">
+              <div class="cd-icon">
+                <i class="fa-solid fa-location-dot"></i>
+              </div>
+              <div>
+                <strong>Location</strong>
+                <span>Abuja, Federal Capital Territory, Nigeria</span>
+              </div>
+            </div>
+            <div class="cd-item">
+              <div class="cd-icon">
+                <i class="fa-solid fa-building-columns"></i>
+              </div>
+              <div>
+                <strong>Regulator</strong>
+                <span>Corporate Affairs Commission (CAC)</span>
+              </div>
+            </div>
+            <div class="cd-item">
+              <div class="cd-icon">
+                <i class="fa-solid fa-scale-balanced"></i>
+              </div>
+              <div>
+                <strong>Governing Law</strong>
+                <span>CAMA 2020 &middot; Federal Republic of Nigeria</span>
+              </div>
+            </div>
+            <div class="cd-item">
+              <div class="cd-icon">
+                <i class="fa-solid fa-calendar-check"></i>
+              </div>
+              <div>
+                <strong>Incorporated</strong>
+                <span>October 21, 2025</span>
+              </div>
+            </div>
+          </div>
+        </div>
 
-    <div class="form-group">
-      <label>Your Message</label>
-      <textarea name="message" placeholder="Tell us about your project or need…" required></textarea>
-    </div>
+        <div class="contact-form-wrap fade-up">
+          <!--
+          ══════════════════════════════════════════════════
+           EMAIL SETUP — Web3Forms
+          ══════════════════════════════════════════════════
+        -->
+          <form id="contactForm" novalidate>
+            <input type="hidden" name="access_key" value="YOUR_KEY_HERE" />
+            <input
+              type="hidden"
+              name="subject"
+              value="New Inquiry — BridgeSupport Website"
+            />
+            <input
+              type="hidden"
+              name="from_name"
+              value="BridgeSupport Website"
+            />
+            <input
+              type="checkbox"
+              name="botcheck"
+              style="display: none"
+              tabindex="-1"
+            />
 
-   
-    <button type="submit" class="form-submit">
-      Send Message →
-    </button>
+            <div class="form-row">
+              <div class="fgrp">
+                <label for="fname">First Name</label>
+                <input
+                  id="fname"
+                  type="text"
+                  name="first_name"
+                  placeholder="Heaven"
+                  required
+                />
+              </div>
+              <div class="fgrp">
+                <label for="lname">Last Name</label>
+                <input
+                  id="lname"
+                  type="text"
+                  name="last_name"
+                  placeholder="Gabriel"
+                  required
+                />
+              </div>
+            </div>
+            <div class="fgrp">
+              <label for="femail">Email Address</label>
+              <input
+                id="femail"
+                type="email"
+                name="email"
+                placeholder="hello@yourcompany.com"
+                required
+              />
+            </div>
+            <div class="fgrp">
+              <label for="fservice">Service of Interest</label>
+              <select id="fservice" name="service">
+                <option value="">Select a service...</option>
+                <option>Web Development &amp; Digital Solutions</option>
+                <option>Social Media Management</option>
+                <option>Training &amp; Mentorship</option>
+                <option>Recruitment &amp; Talent Placement</option>
+                <option>Tech Procurement &amp; Supply</option>
+                <option>Software &amp; Tools Deployment</option>
+                <option>General Inquiry</option>
+              </select>
+            </div>
+            <div class="fgrp">
+              <label for="fmsg">Message</label>
+              <textarea
+                id="fmsg"
+                name="message"
+                rows="5"
+                placeholder="Tell us about your project or inquiry..."
+                required
+              ></textarea>
+            </div>
+            <button type="submit" id="submitBtn" class="btn btn-gold btn-full">
+              <i class="fa-solid fa-paper-plane"></i>
+              Send Message
+            </button>
+            <div id="formMsg" class="form-msg" role="alert"></div>
+          </form>
+        </div>
+      </div>
+    </section>
 
-  </form>  
-</div>
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <div class="footer-logo">
+              <div class="logo-mark">BS</div>
+              <span>Bridge<strong>Support</strong></span>
+            </div>
+            <p>Bridging talent and technology for Africa's digital future.</p>
+            <div class="footer-legal">
+              <span>CAC 2025</span>
+              <span>Stamp Duty: 2025-4715-71353-43278</span>
+              <span>CAMA 2020 &middot; Federal Republic of Nigeria</span>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Services</h4>
+            <ul>
+              <li><a href="#services">Web Development</a></li>
+              <li><a href="#services">Social Media</a></li>
+              <li><a href="#services">Training &amp; Mentorship</a></li>
+              <li><a href="#services">Talent Placement</a></li>
+              <li><a href="#services">Tech Procurement</a></li>
+              <li><a href="#services">Software Deployment</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="#about">About Us</a></li>
+              <li><a href="#team">Our Team</a></li>
+              <li><a href="#process">How We Work</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            &copy; 2025 BridgeSupport Limited. All rights reserved. Incorporated
+            under CAMA 2020, Federal Republic of Nigeria.
+          </p>
+        </div>
+      </div>
+    </footer>
 
-
-    </div>
-  </section>
-
- 
-  <footer>
-    <div class="footer-logo">
-      <div class="footer-logo-icon">🔗</div>
-      <div class="footer-logo-text">BridgeSupport Limited</div>
-    </div>
-    <div class="footer-copy">© 2026 BridgeSupport Limited. All rights reserved.</div>
-    <div class="footer-reg">Registered under CAMA 2020 · Nigeria<br/>Stamp Duty: 2025-4715-71353-43278</div>
-  </footer>
-
- 
- <script src="js/main.js"></script>
- 
- <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
- 
- <script> 
-    (function(){
-      emailjs.init("hoJSNcs5z8fV1GMoZ");
-    })();
-  </script>
-  
-
-</body>
+    <script src="js/main.js"></script>
+  </body>
 </html>
