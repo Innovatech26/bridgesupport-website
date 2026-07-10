@@ -1,74 +1,122 @@
+/* ═══════════════════════════════════════════════
+   BridgeSupport — main.js
+   ═══════════════════════════════════════════════ */
 
-const nav = document.getElementById('navbar');
-window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 40));
+// ── NAVBAR SCROLL ────────────────────────────────
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 50);
+}, { passive: true });
 
-
-const mobileMenu = document.getElementById('mobileMenu');
+// ── MOBILE MENU ──────────────────────────────────
+const mobMenu     = document.getElementById('mobMenu');
+const mobBackdrop = document.getElementById('mobBackdrop');
+const hamburger   = document.getElementById('hamburger');
+const mobClose    = document.getElementById('mobClose');
 
 function openMobile() {
-  mobileMenu.classList.add('open');
+  mobMenu.classList.add('open');
+  mobBackdrop.classList.add('open');
   document.body.style.overflow = 'hidden';
 }
-
 function closeMobile() {
-  mobileMenu.classList.remove('open');
+  mobMenu.classList.remove('open');
+  mobBackdrop.classList.remove('open');
   document.body.style.overflow = '';
 }
 
-document.getElementById('hamburger').addEventListener('click', openMobile);
-document.getElementById('mobileClose').addEventListener('click', closeMobile);
+hamburger.addEventListener('click', openMobile);
+mobClose.addEventListener('click', closeMobile);
+mobBackdrop.addEventListener('click', closeMobile);
 
-mobileMenu.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', (e) => {
+// ── SMOOTH SCROLL ────────────────────────────────
+function scrollTo(href) {
+  const target = document.querySelector(href);
+  if (!target) return;
+  const offset = navbar.offsetHeight + 8;
+  const top = target.getBoundingClientRect().top + window.scrollY - offset;
+  window.scrollTo({ top, behavior: 'smooth' });
+}
+
+// Desktop + inline anchor links
+document.querySelectorAll('a[href^="#"]:not(.mob-link)').forEach(a => {
+  a.addEventListener('click', function (e) {
     e.preventDefault();
-    closeMobile();
-    const href = link.getAttribute('href');
-    if (href && href.startsWith('#')) {
-      setTimeout(() => {
-        const target = document.querySelector(href);
-        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, 300);
-    }
+    scrollTo(this.getAttribute('href'));
   });
 });
 
-mobileMenu.addEventListener('click', (e) => {
-  if (e.target === mobileMenu) closeMobile();
+// Mobile menu links — close first, then scroll after animation
+document.querySelectorAll('.mob-link[href^="#"]').forEach(a => {
+  a.addEventListener('click', function (e) {
+    e.preventDefault();
+    const href = this.getAttribute('href');
+    closeMobile();
+    setTimeout(() => scrollTo(href), 360);
+  });
 });
 
-
-const io = new IntersectionObserver((entries) => {
+// ── SCROLL REVEAL ────────────────────────────────
+const revealObs = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (!entry.isIntersecting) return;
     const el = entry.target;
-    const siblings = [...(el.parentElement?.children || [])].filter(c => c.classList.contains('reveal'));
+    const parent = el.parentElement;
+    // stagger siblings in the same parent
+    const siblings = parent
+      ? [...parent.querySelectorAll(':scope > .fade-up')]
+      : [el];
     const idx = siblings.indexOf(el);
-    setTimeout(() => el.classList.add('visible'), idx * 90);
-    io.unobserve(el);
+    setTimeout(() => el.classList.add('in'), idx * 80);
+    revealObs.unobserve(el);
   });
-}, { threshold: 0.08, rootMargin: '0px 0px -50px 0px' });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+document.querySelectorAll('.fade-up').forEach(el => revealObs.observe(el));
 
+// ── CONTACT FORM — Web3Forms ──────────────────────
+const contactForm = document.getElementById('contactForm');
+const submitBtn   = document.getElementById('submitBtn');
+const formMsg     = document.getElementById('formMsg');
 
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    const t = document.querySelector(a.getAttribute('href'));
-    if (t) {
-      e.preventDefault();
-      t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+if (contactForm) {
+  contactForm.addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    const key = this.querySelector('[name="access_key"]').value.trim();
+    if (!key || key === 'YOUR_KEY_HERE') {
+      formMsg.className = 'form-msg err';
+      formMsg.textContent =
+        'Email not configured yet. See the setup comment in index.html — takes 2 minutes at web3forms.com.';
+      return;
+    }
+
+    const original = submitBtn.innerHTML;
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Sending…';
+    formMsg.className = 'form-msg';
+
+    try {
+      const res  = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: new FormData(this),
+      });
+      const data = await res.json();
+
+      if (data.success) {
+        formMsg.className = 'form-msg ok';
+        formMsg.textContent = '✓ Message received! We\'ll be in touch within 24 hours.';
+        this.reset();
+        submitBtn.innerHTML = '<i class="fa-solid fa-check"></i> Sent!';
+        submitBtn.style.background = '#1F4532';
+      } else {
+        throw new Error(data.message || 'Submission failed');
+      }
+    } catch {
+      formMsg.className = 'form-msg err';
+      formMsg.textContent = '✕ Something went wrong. Please try again.';
+      submitBtn.innerHTML = original;
+      submitBtn.disabled  = false;
     }
   });
-});
-
-
-function handleSubmit(btn) {
-  btn.textContent = 'Sending…';
-  btn.disabled = true;
-  btn.style.opacity = '0.7';
-  setTimeout(() => {
-    btn.textContent = '✓ Message Sent!';
-    btn.style.background = 'linear-gradient(135deg,#059669,#10b981)';
-    btn.style.opacity = '1';
-  }, 1500);
 }
