@@ -321,6 +321,7 @@ button { cursor: pointer; font-family: inherit; }
 .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 4rem; margin-bottom: 3rem; }
 .footer-logo { display: flex; align-items: center; gap: 0.65rem; font-family: var(--serif); font-size: 1.2rem; color: var(--cream); margin-bottom: 1rem; }
 .footer-logo strong { color: var(--gold); }
+.footer-logo .logo-mark { width: 32px; height: 32px; font-size: 0.78rem; }
 .footer-brand p { font-size: 0.83rem; color: rgba(245,240,232,0.38); line-height: 1.6; max-width: 280px; margin-bottom: 1.25rem; }
 .footer-legal { display: flex; flex-direction: column; gap: 0.2rem; }
 .footer-legal span { font-size: 0.67rem; color: rgba(201,168,76,0.32); letter-spacing: 0.04em; }
