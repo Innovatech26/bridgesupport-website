@@ -107,7 +107,7 @@ if (contactForm) {
         formMsg.textContent = "✓ Message received! We'll be in touch within 24 hours.";
         this.reset();
         submitBtn.innerHTML = '<i class="fa-solid fa-check"></i> Sent!';
-        submitBtn.style.background = '#1F4532';
+        submitBtn.style.background = '#1C2E4B';
       } else {
         throw new Error(data.message || 'Submission failed');
       }
